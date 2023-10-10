@@ -19,7 +19,7 @@ namespace TestProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            c1FlexGrid1.BackColor = Color.Red;
         }
     }
 }
