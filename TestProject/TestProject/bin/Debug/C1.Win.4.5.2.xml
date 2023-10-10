@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>C1.Win.4.8</name>
+        <name>C1.Win.4.5.2</name>
     </assembly>
     <members>
         <member name="M:GrapeCity.Common.GcNetFxLicenseProvider`1.VerifyDesignTimeEnvironment">
@@ -4883,6 +4883,11 @@
             Gets the drop-down owner.
             </summary>
         </member>
+        <member name="P:C1.Framework.DropDownFormBase.DeviceDpi">
+            <summary>
+            Gets the DPI value for this dropdown form.
+            </summary>
+        </member>
         <member name="M:C1.Framework.DropDownFormBase.OnOwnerDropDownOpened">
             <summary>
             Raises the DropDownOwner.DropDownOpened event.
@@ -7875,6 +7880,26 @@
             Returns system DPI for .Net 4.5.2 and Control.DeviceDpi for .Net 5 or highest.
             </remarks>
         </member>
+        <member name="M:C1.Framework.XView.LogicalToDeviceUnits(System.Int32)">
+            <summary>
+            Converts a Logical DPI value to its equivalent DeviceUnit DPI value.
+            </summary>
+            <param name="value">The Logical value to convert.</param>
+            <returns>The resulting DeviceUnit value.</returns>
+        </member>
+        <member name="M:C1.Framework.XView.LogicalToDeviceUnits(System.Drawing.Size)">
+            <summary>
+            Transforms a size from logical to device units by scaling it for the current DPI and rounding down to the nearest integer value for width and height.
+            </summary>
+            <param name="value">The size to be scaled.</param>
+            <returns>The scaled size.</returns>
+        </member>
+        <member name="M:C1.Framework.XView.ScaleBitmapLogicalToDevice(System.Drawing.Bitmap@)">
+            <summary>
+            Scales a logical bitmap value to it's equivalent device unit value when a DPI change occurs.
+            </summary>
+            <param name="bitmap">The bitmap to scale.</param>
+        </member>
         <member name="M:C1.Framework.XView.LogicalToDeviceUnits(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
             Transforms a <see cref="T:C1.Framework.Thickness"/> from logical to device units by scaling it for the current DPI and rounding down to the nearest integer value for left, right, top and bottom.
@@ -8168,9 +8193,6 @@
             <param name="dy">Amount to scroll in the y direction, in pixels.</param>
             <returns></returns>
         </member>
-        <member name="M:C1.Framework.XView.RescaleConstantsForDpi(System.Int32,System.Int32)">
-            <inheritdoc/>
-        </member>
         <member name="M:C1.Framework.XView.WndProc(System.Windows.Forms.Message@)">
             <inheritdoc/>
         </member>
@@ -8321,13 +8343,6 @@
             </summary>
             <param name="e">An System.EventArgs that contains the event data.</param>
         </member>
-        <member name="M:C1.Framework.XViewLight.RescaleConstantsForDpi(System.Int32,System.Int32)">
-            <summary>
-            Provides constants for rescaling the control when a DPI change occurs.
-            </summary>
-            <param name="deviceDpiOld">The DPI value prior to the change.</param>
-            <param name="deviceDpiNew">The DPI value after the change.</param>
-        </member>
         <member name="P:C1.Framework.XViewLight.C1#Framework#IView#DeviceDpi">
             <summary>
             Gets the DPI value for the display device where the control is currently being displayed.
@@ -8340,6 +8355,20 @@
             <remarks>
             Returns system DPI for .Net 4.5.2 and Control.DeviceDpi for .Net 5 or highest.
             </remarks>
+        </member>
+        <member name="M:C1.Framework.XViewLight.LogicalToDeviceUnits(System.Int32)">
+            <summary>
+            Converts a Logical DPI value to its equivalent DeviceUnit DPI value.
+            </summary>
+            <param name="value">The Logical value to convert.</param>
+            <returns>The resulting DeviceUnit value.</returns>
+        </member>
+        <member name="M:C1.Framework.XViewLight.LogicalToDeviceUnits(System.Drawing.Size)">
+            <summary>
+            Transforms a size from logical to device units by scaling it for the current DPI and rounding down to the nearest integer value for width and height.
+            </summary>
+            <param name="value">The size to be scaled.</param>
+            <returns>The scaled size.</returns>
         </member>
         <member name="P:C1.Framework.XViewLight.FocusedElement">
             <summary>
